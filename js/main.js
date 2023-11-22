@@ -19,10 +19,33 @@ let alimentazioneElettrica = [];
 // COLLOCA CIASCUN AUTOMOBILE NEL RISPETTIVO ARRAY
 listaAutomobili.forEach(function (automobile) {
     if (automobile.alimentazione === 'diesel') {
-        alimentazioneDiesel.push;
+        alimentazioneDiesel.push(automobile);
     } else if (automobile.alimentazione === 'benzina') {
-        alimentazioneBenzina.push;
+        alimentazioneBenzina.push(automobile);
     } else {
-        alimentazioneElettrica.push;
+        alimentazioneElettrica.push(automobile);
     }
+    console.log(automobile)
 });
+
+// STAMPA SEPARATAMENTE I 3 ARRAY
+console.log('Alimentate a diesel', alimentazioneDiesel);
+
+console.log('Alimentate a benzina', alimentazioneBenzina);
+
+console.log('Automobili elettriche', alimentazioneElettrica);
+
+
+// HTML
+stampaLista(alimentazioneDiesel,'lista1');
+stampaLista(alimentazioneBenzina,'lista2');
+stampaLista(alimentazioneElettrica,'lista3');
+
+function stampaLista(array, idLista){
+    let listaHtml = '';
+    for (let i = 0; i < array.length; i++) {
+        let automobile = array[i]
+        listaHtml += `<li>${automobile.marca} ${automobile.modello}</li>`;
+    }
+    document.getElementById(idLista).innerHTML = listaHtml;
+}
